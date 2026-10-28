@@ -1,0 +1,9 @@
+version: 1
+name: trama-demo
+repos:
+  - name: trama-demo-api
+    url: https://github.com/lukascivil/trama-demo-api.git
+    branch: main
+  - name: trama-demo-web
+    url: https://github.com/lukascivil/trama-demo-web.git
+    branch: main
