@@ -21,6 +21,13 @@ This repository is a [trama](https://github.com/lukascivil/trama) workspace. It 
 See [docs/graph.md](docs/graph.md).
 <!-- trama:end -->
 
+## Running
+
+- `trama dev <repo>` runs one repository with the commands and runtime versions from its catalog card, after its setup when needed.
+- `trama up` runs every repository at once, each line prefixed with its name. Ctrl+C stops them all.
+- `trama test <repo>` runs a repository's tests, after its setup when needed. Run it in every repository a change touches.
+- `trama setup <repo>` runs a repository's setup again (e.g. after changing its dependencies).
+
 ## Rules for agents
 
 - Before editing a repository, read its own `AGENTS.md` or `CLAUDE.md`.
