@@ -13,7 +13,9 @@ steps:
   - order: 2
     repo: trama-demo-web
     action: Ler greeting em vez de message
-    state: pending
+    branch: trama/rename-message-to-greeting
+    pr: https://github.com/lukascivil/trama-demo-web/pull/1
+    state: open
   - order: 3
     repo: trama-demo-api
     action: Remover message do GET /hello
