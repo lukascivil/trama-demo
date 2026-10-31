@@ -70,8 +70,15 @@ Ordem expandir → migrar → contrair:
 
 ## Execução
 
-Ainda não começou.
+- Branch `trama/rename-message-to-greeting` em `trama-demo-api` e em `trama-demo-web`.
+- `trama test trama-demo-api` (`go test ./...`): passou.
+- `trama test trama-demo-web` (`npm test`): passou, 3 testes.
+- Pull requests, na ordem de merge:
+  1. [trama-demo-api#1](https://github.com/lukascivil/trama-demo-api/pull/1): adiciona `greeting` e mantém `message`, marcado como obsoleto.
+  2. [trama-demo-web#1](https://github.com/lukascivil/trama-demo-web/pull/1), rascunho: lê `greeting`. Sai do rascunho e entra só depois do merge e deploy do #1 da API.
+- `src/App.tsx` em `trama-demo-web` ficou como estava: o `message` dali é um nome local, não o campo da API.
 
 ## Pendente
 
-- Passo 3, quando `trama-demo-web` com `greeting` estiver em produção.
+- Passo 3, `trama-demo-api`: remover `message` do `GET /hello`, quando `trama-demo-web` com `greeting` estiver em produção. Ainda sem pull request.
+- Depois dos merges: `trama sync`, `trama changes` e `/trama:map --all`, para atualizar o `shape` de `trama-demo-api` e os `fields_used` de `trama-demo-web`.
