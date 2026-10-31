@@ -7,7 +7,9 @@ steps:
   - order: 1
     repo: trama-demo-api
     action: Adicionar greeting ao GET /hello, mantendo message
-    state: pending
+    branch: trama/rename-message-to-greeting
+    pr: https://github.com/lukascivil/trama-demo-api/pull/1
+    state: open
   - order: 2
     repo: trama-demo-web
     action: Ler greeting em vez de message
