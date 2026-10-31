@@ -1,0 +1,23 @@
+version: 1
+name: trama-demo-api
+description: Go backend that serves the demo greeting at GET /hello
+stack: [go]
+tools:
+  go: "1.25"
+run:
+  dev: {cmd: "go run ./cmd/api", port: 8080}
+  test: {cmd: "go test ./..."}
+identity:
+  ports: [{value: 8080, evidence: ["cmd/api/main.go:11"]}]
+provides:
+  - kind: http
+    id: "GET /hello"
+    shape: {message: string}
+    evidence: ["internal/api/api.go:42", "internal/api/api.go:13-15"]
+config:
+  - env: WEB_ORIGIN
+    value: "http://localhost:5173"
+    points_to: trama-demo-web
+    evidence: ["cmd/api/main.go:14-17", "internal/api/api.go:10", "README.md:12"]
+mapped_at_commit: "1cb5a15fdf2a4e941fc5bcc5c68ec3bab5e84ed6"
+mapped_at: "2026-10-31"

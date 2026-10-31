@@ -1,0 +1,26 @@
+version: 1
+name: trama-demo-web
+description: React frontend that shows the greeting fetched from the API
+stack: [node, typescript, react, vite, vitest]
+tools:
+  node: "24"
+run:
+  setup: {cmd: "npm install"}
+  dev: {cmd: "npm run dev", port: 5173}
+  test: {cmd: "npm test"}
+identity:
+  ports: [{value: 5173, evidence: ["CLAUDE.md:6"]}]
+consumes:
+  - kind: http
+    id: "GET /hello"
+    from: trama-demo-api
+    via: env
+    fields_used: [message]
+    evidence: ["src/api/hello.ts:10", "src/api/hello.ts:15"]
+config:
+  - env: VITE_API_URL
+    value: "http://localhost:8080"
+    points_to: trama-demo-api
+    evidence: [".env.example:1", "src/api/hello.ts:7"]
+mapped_at_commit: "697bd1b0f781b0c154caf9b5771f627e096c6712"
+mapped_at: "2026-10-31"

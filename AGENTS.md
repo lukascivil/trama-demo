@@ -13,7 +13,12 @@ This repository is a [trama](https://github.com/lukascivil/trama) workspace. It 
 ## Repositories
 
 <!-- trama:begin -->
-_No repositories mapped yet._
+| Repository | Stack | Provides | Consumes |
+|---|---|---|---|
+| trama-demo-api | go | GET /hello | — |
+| trama-demo-web | node, typescript, react, vite, vitest | — | GET /hello ← trama-demo-api |
+
+See [docs/graph.md](docs/graph.md).
 <!-- trama:end -->
 
 ## Rules for agents
